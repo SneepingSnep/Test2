@@ -8,7 +8,7 @@
 unsigned counter= 0;
 void init(){
 	PORTK|=0xFF;
-	DDRG |=0b00100000;  //D4 as output
+	DDRB |=(1<<7);  //D4 as output
 	DDRK &= ~(1<<0);
   PORTK|=(0xFF);
 }
@@ -34,6 +34,10 @@ int main(void)
   
   while (1)
   {      
+
+
+    PORTB ^= (1<<7);
+    _delay_ms(1000);
     // Alt det grønne text her er debug til at læse registre. Jeg lader det lige stå hvis det skal bruges igen
 	  //itoa(PORTK, PORTbuffer, 10);
     
