@@ -23,11 +23,11 @@ int main(void)
 
   clear_display();   //use this before writing you own text
 
-  char HexPinstate[25];
+  char HexPinstate[15];
   strcpy(HexPinstate,"PINK:0X");
   int hexlen = strlen(HexPinstate);
   
-  char PINbuffer[8];
+  char PINbuffer[3];
   
   
   bool startcondition= false;
@@ -36,8 +36,10 @@ int main(void)
   {      
 
 
-    PORTB ^= (1<<7);
+    PORTB ^= (1<<7); // blinking onboard led every 1 second
     _delay_ms(1000);
+
+
     // Alt det grønne text her er debug til at læse registre. Jeg lader det lige stå hvis det skal bruges igen
 	  //itoa(PORTK, PORTbuffer, 10);
     
